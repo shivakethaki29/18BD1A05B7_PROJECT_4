@@ -1,0 +1,159 @@
+<html>
+    <head>
+        <title>e Pass | India </title>
+        <link rel="stylesheet" type="text/css" href="static/style.css">
+        <script>
+            function validate_fname()
+            {
+                var user=document.getElementById("fname").value;
+                var regx=/^[a-z]+$/i; //or regx=/^[a-z A-Z]+$/;
+                if(regx.test(user))
+                {
+                    document.getElementById("fname").style.border="2px solid rgb(29, 199, 66)";
+                    document.getElementById("lb").style.visibility="hidden";
+                }
+                else
+                {
+                    document.getElementById("fname").style.border="2px solid red";
+                    document.getElementById("lb").style.visibility="visible";
+                }
+            }
+            function validate_lname()
+            {
+                var user=document.getElementById("lname").value;
+                var regx=/^[a-z]+$/i; //or regx=/^[a-z A-Z]+$/;
+                if(regx.test(user))
+                {
+                    document.getElementById("lname").style.border="2px solid rgb(29, 199, 66)";
+                    document.getElementById("lb2").style.visibility="hidden";
+                }
+                else
+                {
+                    document.getElementById("lname").style.border="2px solid red";
+                    document.getElementById("lb2").style.visibility="visible";
+                }
+            }
+            function validate_email()
+            {
+                var ei=document.getElementById("email").value;
+                var er=/^([a-z A-Z 0-9 \. - _]+@[a-z A-Z 0-9]+.[a-z]+(.[a-z]{2})?)$/;
+                if(er.test(ei))
+                {
+                    document.getElementById("email").style.border="2px solid rgb(29, 199, 66)";
+                    document.getElementById("lb3").style.visibility="hidden";
+                }
+                else
+                {
+                    document.getElementById("email").style.border="2px solid red";
+                    document.getElementById("lb3").style.visibility="visible";
+                }
+            }
+            function validate_idcard()
+            {
+                var mn=document.getElementById("idcard").value;
+                var mr=/^[0-9]{12}$/;
+                if(mr.test(mn))
+                {
+                    document.getElementById("idcard").style.border="2px solid rgb(29, 199, 66)";
+                    document.getElementById("lb4").style.visibility="hidden";
+                }
+                else
+                {
+                    document.getElementById("idcard").style.border="2px solid red";
+                    document.getElementById("lb4").style.visibility="visible";
+                }
+            }
+            function validate_mobile_num()
+            {
+                var mn=document.getElementById("mobile").value;
+                var mr=/^[6-9][0-9]{9}$/;
+                if(mr.test(mn))
+                {
+                    document.getElementById("mobile").style.border="2px solid rgb(29, 199, 66)";
+                    document.getElementById("lb5").style.visibility="hidden";
+                }
+                else
+                {
+                    document.getElementById("mobile").style.border="2px solid red";
+                    document.getElementById("lb5").style.visibility="visible";
+                }
+            }
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth()+1; //January is 0!
+            var yyyy = today.getFullYear();
+            if(dd<10){
+                    dd='0'+dd
+                }
+                if(mm<10){
+                    mm='0'+mm
+                }
+
+            today = yyyy+'-'+mm+'-'+dd;
+            document.getElementById("date").setAttribute("min", today);
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <div style="width: 20%;">
+                <img src="/static/indialogo.png" style="height: 100%;padding: 0;float: left;">
+            </div>
+            <div style="width: 80%;text-align: center;padding-top: 1%;">
+                <h1>COVID-19 ePass Govt. of INDIA </h1>
+            </div>
+
+        </div>
+        <marquee width="100%" direction="left" height="5%" style="background-color: rgb(169, 194, 216);">
+            With the second wave of Covid-19 already pushing major state governments to prepare a fresh blueprint to fight
+            the pandemic spread, state governments including Maharashtra, Rajasthan, Punjab, Jharkhand, Uttar Pradesh and Tamil Nadu
+            among others have even imposed night lockdown in respective states.
+            So the central government has decided to give epass for the people who wants to travel from one place to another.
+            Please make sure your application status is CONFIRMED.
+        </marquee>
+        <div class="float-container" >
+            <div class="apform">
+
+                <form action="/login_page" method="post">
+                    <h1> COVID-19 ePass Application form</h1>
+                    <hr style="height: 1px;background-color:black;">
+                    <label>First Name </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="fname" name="fname" placeholder="first name" onchange="validate_fname()" required>
+                    <label id="lb" style="color: red;visibility: hidden;"><span>* Invalid</span></label><br>
+                    <label>Last Name </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="lname" name="lname" placeholder="last name" onchange="validate_lname()" required>
+                    <label id="lb2" style="color: red;visibility: hidden;"><span>* Invalid</span></label><br>
+                    <label>Email Id </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="email" name="email" placeholder="email id" onchange="validate_email()" required>
+                    <label id="lb3" style="color: red;visibility: hidden;"><span>* Invalid</span></label><br/>
+                    <label>Aadhar Number</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="idcard" name="idcard" placeholder="aadhar number" onchange="validate_idcard()" required>
+                    <label id="lb4" style="color: red;visibility: hidden;"><span>* Invalid</span></label><br/>
+                    <label>State Name</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="source_state" placeholder="state name" required><br>
+                    <label>Source Name</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="source" placeholder="source name" required><br>
+                    <label>State Name</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="dest_state" placeholder="destination name" required><br>
+                    <label>Destination Name</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="destination" placeholder="destination name" required><br>
+                    <label>Mobile Number</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="mobile" name="phoneNumber" placeholder="mobile number" onchange="validate_mobile_num()" required>
+                     <label id="lb5" style="color: red;visibility: hidden;"><span>* Invalid</span></label><br/>
+                    <label>Travel Date</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="date" id="date" name="trip" min="2021-05-15" placeholder="travel date" required><br>
+                    <script>
+                        var n = new Date(); //date constructor
+                        var y = n.getFullYear(); //current full year
+                        var m = n.getMonth()+1;  //current month
+                        var d = n.getDate();     //current day
+                        //padStart fix length of sting as per requirement, for e.g. when month = 8 then month become 08
+                        var today = y.toString().padStart(4, 0)+"-"+m.toString().padStart(2, 0)+"-"+d.toString().padStart(2, 0); //current date
+                        var elem = document.getElementById("date"); //HTML DOM input type date
+                        function restric(e){
+                            e.value = today;
+                            e.setAttribute("min",today);
+                        }
+                        restric(elem); //function called
+                    </script>
+                    <input type="submit" value="apply"><br>
+                  </form>
+            </div>
+            <div class="bottomright">
+                <img src="/static/pic2.jpg" width="350" height="250">
+            </div>
+
+
+
+          </div>
+    </body>
+</html>
